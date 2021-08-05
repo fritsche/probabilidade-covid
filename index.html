@@ -13,7 +13,7 @@
 
 <body>
     <div class="container">
-        <div class="mt-5 mb-5 border rounded p-3 border-secondary bg-dark text-light">
+        <div class="mt-5 border rounded p-3 border-secondary bg-dark text-light">
             <div class="m-3">
                 <header>
                     <h1 class="h1">Probabilidade de COVID</h1>
@@ -23,14 +23,40 @@
                     </div>
                 </header>
                 <hr class="mb-3 mt-3 border-secondary">
-                <form>
+                <form id="inputForm">
                     <div class="mb-3">
                         <label for="testResultInput" class="form-label">Resultado do(s) teste(s):</label>
-                        <input type="text" class="form-control" id="testResultInput" aria-describedby="testResultHelp" placeholder="1, 0, 0, 1">
+                        <input type="text" class="form-control" id="testResultInput" aria-describedby="testResultHelp"
+                            placeholder="1, 0, 0, 1" required>
                         <div id="testResultHelp" class="form-text text-secondary">Resultados dos testes separados por
                             vírgula, 1: positivo, 0: negativo.</div>
                     </div>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label for="prevalenceInput" class="form-label">Prevalência:</label>
+                            <input type="number" name="prevalence" id="prevalenceInput" class="form-control" value="0.6"
+                                required>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="specificityInput" class="form-label">Especificidade:</label>
+                            <input type="number" name="specificity" id="specificityInput" class="form-control"
+                                value="99.5" required>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="sensitivityInput" class="form-label">Sensibilidade:</label>
+                            <input type="number" name="sensitivity" id="sensitivityInput" class="form-control"
+                                value="84.0" required>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <button type="submit" class="btn btn-primary w-100" id="computeBtn">Calcular</button>
+                        </div>
+                    </div>
                 </form>
+                <div>
+                    <p id="result">
+
+                    </p>
+                </div>
             </div>
         </div>
         <footer class="text-muted">
@@ -41,6 +67,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+
 </body>
 
 </html>
